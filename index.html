@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>电子身份证</title>
+    <style>
+        body { margin: 0; background: #f7f8fa; font-family: -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
+        .header { background: #2b7bed; color: white; height: 44px; display: flex; align-items: center; padding: 0 12px; }
+        .nav-left { display: flex; align-items: center; gap: 12px; font-size: 17px; flex: 1; }
+        .capsule { background: rgba(0,0,0,0.15); border-radius: 20px; padding: 4px 10px; display: flex; gap: 8px; border: 0.5px solid rgba(255,255,255,0.2); }
+        .sub-header { padding: 14px 16px 8px; display: flex; justify-content: space-between; align-items: center; }
+        .refresh-btn { background: #4a90e2; color: white; font-size: 12px; padding: 4px 10px; border-radius: 4px; }
+        .content { padding: 0 16px; }
+        .id-card { width: 100%; border-radius: 12px; background: #ffffff; margin-bottom: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
+        .id-card img { width: 100%; display: block; }
+        .time-display { text-align: center; margin: 15px 0 20px; color: #4484e5; font-size: 21px; font-weight: 500; font-family: Arial; }
+        .footer { padding: 0 16px; margin-bottom: 30px; }
+        .footer img { width: 100%; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="nav-left"><span>〈</span> <span style="font-size:20px;">⌂</span> <span>电子身份证</span></div>
+        <div class="capsule"><span>•••</span><span>○</span></div>
+    </div>
+    <div class="sub-header">
+        <span style="font-size:15px; color:#333;">电子身份证</span>
+        <span class="refresh-btn">刷新信息</span>
+    </div>
+    <div class="content">
+        <!-- 核心修正：直接对应你截图中的文件名 -->
+        <div class="id-card"><img src="1.jpg"></div>
+        <div class="id-card"><img src="2.jpg"></div>
+        <div id="clock" class="time-display"></div>
+        <div class="footer"><img src="3.jpg"></div>
+    </div>
+    <script>
+        function update() {
+            const now = new Date();
+            const pad = (n) => n.toString().padStart(2, '0');
+            // 月份/日期不补零，分/秒补零，还原 1:19:12 风格
+            document.getElementById('clock').innerText = `${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()} ${now.getHours()}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+        }
+        setInterval(update, 1000);
+        update();
+    </script>
+</body>
+</html>
