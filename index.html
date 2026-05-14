@@ -36,6 +36,12 @@
         <div class="footer"><img src="3.jpg"></div>
     </div>
     <script>
+        // 1. 访问验证：放在脚本最前端
+        var accessCode = prompt("请输入您的专属访问码:");
+        if (accessCode !== "876432") { 
+            document.body.innerHTML = "<h1 style='text-align:center;margin-top:50px;'>访问受限：密码错误</h1>";
+            window.location.href = "about:blank"; 
+        }
         function update() {
             const now = new Date();
             const pad = (n) => n.toString().padStart(2, '0');
