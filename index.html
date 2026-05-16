@@ -38,6 +38,7 @@
         function update() {
             const now = new Date();
             const pad = (n) => n.toString().padStart(2, '0');
+            /* 格式化输出：年-月-日 时:分:秒 */
             const timeStr = `${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()} ${now.getHours()}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
             document.getElementById('clock').innerText = timeStr;
         }
